@@ -11,7 +11,6 @@
 		A6C5282528C2BB4650600E52 /* Pods_ShopPickup_ShopPickupUITests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 6F800B293563370D99874713 /* Pods_ShopPickup_ShopPickupUITests.framework */; };
 		DDBA5D12252AD5F20016A39A /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = DDBA5D11252AD5F20016A39A /* AppDelegate.swift */; };
 		DDBA5D14252AD5F20016A39A /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = DDBA5D13252AD5F20016A39A /* SceneDelegate.swift */; };
-		DDBA5D16252AD5F20016A39A /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = DDBA5D15252AD5F20016A39A /* ViewController.swift */; };
 		DDBA5D19252AD5F20016A39A /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = DDBA5D17252AD5F20016A39A /* Main.storyboard */; };
 		DDBA5D1B252AD5F40016A39A /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = DDBA5D1A252AD5F40016A39A /* Assets.xcassets */; };
 		DDBA5D1E252AD5F40016A39A /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = DDBA5D1C252AD5F40016A39A /* LaunchScreen.storyboard */; };
@@ -58,7 +57,6 @@
 		DDBA5D0E252AD5F20016A39A /* ShopPickup.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = ShopPickup.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		DDBA5D11252AD5F20016A39A /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		DDBA5D13252AD5F20016A39A /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
-		DDBA5D15252AD5F20016A39A /* ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
 		DDBA5D18252AD5F20016A39A /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
 		DDBA5D1A252AD5F40016A39A /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		DDBA5D1D252AD5F40016A39A /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
@@ -152,7 +150,6 @@
 				DDBA5D52252B08AE0016A39A /* Views */,
 				DDBA5D11252AD5F20016A39A /* AppDelegate.swift */,
 				DDBA5D13252AD5F20016A39A /* SceneDelegate.swift */,
-				DDBA5D15252AD5F20016A39A /* ViewController.swift */,
 				DDBA5D17252AD5F20016A39A /* Main.storyboard */,
 				DDBA5D1A252AD5F40016A39A /* Assets.xcassets */,
 				DDBA5D1C252AD5F40016A39A /* LaunchScreen.storyboard */,
@@ -479,7 +476,6 @@
 			buildActionMask = 2147483647;
 			files = (
 				DDBA5D54252B08C90016A39A /* PickupViewController.swift in Sources */,
-				DDBA5D16252AD5F20016A39A /* ViewController.swift in Sources */,
 				DDBA5D76252B77ED0016A39A /* PickupViewModel.swift in Sources */,
 				DDBA5D5D252B093A0016A39A /* PickupCell.swift in Sources */,
 				DDBA5D82252B78520016A39A /* PickupLocationRepository.swift in Sources */,

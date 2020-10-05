@@ -7,17 +7,15 @@
 
 import UIKit
 
-class PickupCell: UITableViewCell {
-
-    override func awakeFromNib() {
-        super.awakeFromNib()
-        // Initialization code
+final class PickupCell: UITableViewCell {
+    public static let identifier = "pickupTableViewCell"
+    
+    @IBOutlet weak var radioImage: UIImageView!
+    @IBOutlet weak var placeName: UILabel!
+    @IBOutlet weak var shopType: UILabel!
+    @IBOutlet weak var distanceDetail: UILabel!
+    
+    func configWith() {
+        // config data detail
     }
-
-    override func setSelected(_ selected: Bool, animated: Bool) {
-        super.setSelected(selected, animated: animated)
-
-        // Configure the view for the selected state
-    }
-
 }

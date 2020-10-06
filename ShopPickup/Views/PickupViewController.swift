@@ -14,12 +14,7 @@ class PickupViewController: UIViewController {
     @IBOutlet private weak var loadingView: UIActivityIndicatorView!
     @IBOutlet private weak var tableView: UITableView!
     @IBOutlet private weak var errorView: UIView!
-    
-    fileprivate let locationManager: CLLocationManager = {
-        let manager = CLLocationManager()
-        manager.requestWhenInUseAuthorization()
-        return manager
-    }()
+    fileprivate let locationManager: CLLocationManager = CLLocationManager()
     private var currentLocation: CLLocation?
     
     private var state: State = .loading {
@@ -87,7 +82,6 @@ class PickupViewController: UIViewController {
     
     @IBAction func sortDistance(_ sender: Any) {
         self.getCurrentLocation()
-        self.viewModel.input.getPickupWithSort()
     }
 }
 
@@ -117,6 +111,7 @@ extension PickupViewController {
 
 extension PickupViewController: CLLocationManagerDelegate {
     private func getCurrentLocation() {
+        self.locationManager.requestWhenInUseAuthorization()
         locationManager.delegate = self
         locationManager.showsBackgroundLocationIndicator = true
         locationManager.desiredAccuracy = kCLLocationAccuracyBest
@@ -146,7 +141,7 @@ extension PickupViewController: CLLocationManagerDelegate {
         }
         self.currentLocation = location
         locationManager.stopUpdatingLocation()
-        
+        self.viewModel.input.getPickupWithSort()
     }
     
     func locationManager(_ manager: CLLocationManager, didFailWithError error: Error) {

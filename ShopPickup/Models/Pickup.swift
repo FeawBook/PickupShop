@@ -11,6 +11,7 @@ struct Pickup: Codable {
     let alias: String
     let address1: String
     let city: String
-    let latitude: Double
-    let longitude: Double
+    let latitude: Float?
+    let longitude: Float?
+    let type: String
 }

@@ -9,13 +9,14 @@ import Foundation
 
 protocol PickupInputProtocol {
     func getPickupLocationData()
+    func getPickupWithSort()
 }
 
-protocol PickupOutputProtocol {
+protocol PickupOutputProtocol: class {
     var didGetPickupLocationSuccess: (([Pickup]) -> Void)? { get set }
     var didGetPickupLocationError: ((Error) -> Void)? { get set }
-    var showLoading: (() -> Void)? { get set }
-    var hiddenLoading: (() -> Void)? { get set }
+    var didGetPickupLocationSortSuccess: (([Pickup]) -> Void)? { get set }
+    var didGetPickupLocationSortError: ((Error) -> Void)? { get set }
 }
 
 protocol PickupProtocol: PickupInputProtocol, PickupOutputProtocol {
@@ -23,7 +24,7 @@ protocol PickupProtocol: PickupInputProtocol, PickupOutputProtocol {
     var output: PickupOutputProtocol { get }
 }
 
-final class PickupViewModel: PickupProtocol {
+class PickupViewModel: PickupProtocol {
     var input: PickupInputProtocol { return self }
     
     var output: PickupOutputProtocol { return self }
@@ -32,6 +33,10 @@ final class PickupViewModel: PickupProtocol {
     
     var didGetPickupLocationError: ((Error) -> Void)?
     
+    var didGetPickupLocationSortSuccess: (([Pickup]) -> Void)?
+    
+    var didGetPickupLocationSortError: ((Error) -> Void)?
+    
     var showLoading: (() -> Void)?
     
     var hiddenLoading: (() -> Void)?
@@ -39,7 +44,6 @@ final class PickupViewModel: PickupProtocol {
     let pickupLocationUseCase: PickupLocationUseCase = PickupLocationUseCaseImpl()
     
     func getPickupLocationData() {
-        self.showLoading?()
         pickupLocationUseCase.pickupLocationShop { [weak self] (response, error)  in
             guard let self = self else { return }
             if error == nil {
@@ -53,7 +57,23 @@ final class PickupViewModel: PickupProtocol {
                 }
                 self.didGetPickupLocationError?(errorResp)
             }
-            self.hiddenLoading?()
+        }
+    }
+    
+    func getPickupWithSort() {
+        pickupLocationUseCase.pickupLocationShop { [weak self] (response, error)  in
+            guard let self = self else { return }
+            if error == nil {
+                guard let pickup = response else {
+                    return
+                }
+                self.didGetPickupLocationSortSuccess?(pickup)
+            } else {
+                guard let errorResp = error else {
+                    return
+                }
+                self.didGetPickupLocationSortError?(errorResp)
+            }
         }
     }
 }

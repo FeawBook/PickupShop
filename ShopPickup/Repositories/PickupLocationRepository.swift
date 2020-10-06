@@ -20,7 +20,7 @@ final class PickupLocationRepositoryImpl: PickupLocationRepositoty {
             switch result {
             case .success(let response):
                 do {
-                    let responseData = try response.map(PickupResponse<Pickup>.self).data.pickup
+                    let responseData = try response.map(PickupResponse<Pickup>.self).pickup
                     completionHandler?(responseData, nil)
                 } catch(let error) {
                     completionHandler?(nil, error)

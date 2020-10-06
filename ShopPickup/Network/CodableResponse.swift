@@ -8,7 +8,7 @@
 import Foundation
 
 struct PickupResponse<T: Codable>: Codable {
-    let data: PickupResult<T>
+    let pickup: [T]
 }
 
 struct PickupResult<T: Codable>: Codable {
